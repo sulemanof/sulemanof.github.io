@@ -1,4 +1,122 @@
-a {
-    font-size: 24px;
-    color: red;
+@font-face {
+    font-family: 'western-1';
+    src: url('../fonts/western-1.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
+
+@font-face {
+    font-family: 'western-2';
+    src: url('../fonts/western-2.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'anderson';
+    src: url('../fonts/anderson.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'riogrande';
+    src: url('../fonts/riogrande.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    min-height: 100%;
+    font-size: 10px;
+}
+
+.wrapper {
+    margin: auto;
+    height: 100%;
+    max-width: 1200px;
+    background-image: url(../img/desert-textures-background-sand.jpg);
+    box-shadow: 0 0 20px 7px black;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+}
+
+h1 {
+    font-family: 'riogrande';
+    font-size: 8rem;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
+    text-align: center;
+    cursor: default;    
+}
+
+h2 {
+    font-family: 'riogrande';
+    font-size: 6rem;
+}
+
+.game-logo {
+    position: relative;
+    border: 4px solid rgba(0, 0, 0, .5);
+    border-radius: 10%;
+    padding: 5px;
+    margin-top: 25px;
+    background-color: rgba(0,0,0, 0.2);
+    transition: all .5s;
+}
+
+.game-logo:hover {
+    background-color: rgba(0,0,0, 0.6);
+}
+
+.play-btn {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.game-logo:hover .play-btn{
+    display: flex;
+}
+
+.game-description, .game-controls {
+    margin-top: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 11px 20px -3px black;
+}
+
+.game-description p, .buttons {
+    font-family: 'anderson', serif;
+    font-size: 3rem;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.game-description span {
+    text-transform: uppercase;
+    color: #984242;
+}
+
+.game-controls .buttons {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
