@@ -1,13 +1,6 @@
 @font-face {
-    font-family: 'western-1';
-    src: url('../fonts/western-1.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'western-2';
-    src: url('../fonts/western-2.woff2') format('woff2');
+    font-family: 'amatic';
+    src: url('../fonts/amaticsc-regular-webfont.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
@@ -41,8 +34,7 @@ html, body {
     margin: auto;
     height: 100%;
     max-width: 1200px;
-    background-image: url(../img/desert-textures-background-sand.jpg);
-    box-shadow: 0 0 20px 7px black;
+    background-image: url(../img/gaming-pattern.png);
 }
 
 header {
@@ -50,6 +42,7 @@ header {
     flex-direction: column;
     align-items: center;
     padding-top: 30px;
+    box-shadow: 0px 3px 14px -3px black;
 }
 
 h1 {
@@ -64,6 +57,11 @@ h1 {
 h2 {
     font-family: 'riogrande';
     font-size: 6rem;
+    cursor: default;
+}
+
+h3 {
+    font-size: 4rem;
 }
 
 .game-logo {
@@ -71,13 +69,14 @@ h2 {
     border: 4px solid rgba(0, 0, 0, .5);
     border-radius: 10%;
     padding: 5px;
-    margin-top: 25px;
+    margin: 25px;
     background-color: rgba(0,0,0, 0.2);
     transition: all .5s;
 }
 
 .game-logo:hover {
     background-color: rgba(0,0,0, 0.6);
+    margin: 45px;
 }
 
 .play-btn {
@@ -92,13 +91,13 @@ h2 {
     display: flex;
 }
 
-.game-description, .game-controls {
-    margin-top: 30px;
+.game-description, .game-controls, .screenshots, .about {
+    padding: 40px;    
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0px 11px 20px -3px black;
+    box-shadow: 0px 3px 14px -3px black;    
 }
 
 .game-description p, .buttons {
@@ -120,11 +119,9 @@ h2 {
     justify-content: space-around;
 }
 
-.screenshots {
+.screenshots, .about {
     font-family: 'anderson', serif;
     font-size: 3rem;
-    padding: 40px;
-    text-align: center;
 }
 
 .screenshots p {
@@ -220,3 +217,42 @@ h2 {
 }
 
 .popup p {margin: 0; padding: 5px 0}
+
+.about p {
+    padding: 30px;
+    max-width: 800px;
+}
+
+footer .container {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    align-items: center;
+    box-shadow: 0px 3px 14px -3px black;
+}
+
+footer p {
+    font-family: 'amatic', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    padding: 10px;
+}
+
+.author {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'amatic', sans-serif;
+    margin-right: 70px;
+}
+
+.social a {
+    margin: 15px;
+    text-decoration-line: none;
+    color: #000;
+    transition: all .5s;
+}
+
+.social a:hover {
+    color: palegoldenrod;
+}
