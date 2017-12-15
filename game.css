@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+.wrapper {
+    display: flex;
+    background-image: url(14aa7cb92f697f43acf809730312a7e1.png);
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#game {
+}
+
+footer .container {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    align-items: center;
+    box-shadow: 0px 3px 14px -3px black;
+}
+
+footer p {
+    font-family: 'Amatic SC', cursive;
+    font-size: 2.5rem;
+    text-align: center;
+    padding: 10px;
+}
+
+.author {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'amatic', sans-serif;
+    margin-right: 70px;
+}
+
+.social a {
+    margin: 15px;
+    text-decoration-line: none;
+    color: #000;
+    transition: all .5s;
+}
+
+.social a:hover {
+    color: palegoldenrod;
+}
