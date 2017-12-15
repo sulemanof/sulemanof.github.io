@@ -1,3 +1,18 @@
+@font-face {
+    font-family: 'amatic';
+    src: url(98c636672d9e890d55e67f1028fd90c0.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'riogrande';
+    src: url(19ce44ea93a7857ccc09a2c9d5e2ee9e.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,22 +20,33 @@
 
 html, body {
     height: 100%;
+    font-size: 10px;
 }
 
 body {
     height: 100%;
+    background-image: url(14aa7cb92f697f43acf809730312a7e1.png);
+}
+
+h1 {
+    font-family: 'riogrande';
+    font-size: 8rem;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
+    text-align: center;
+    cursor: default; 
+    margin: 15px;
 }
 
 .wrapper {
     display: flex;
-    background-image: url(14aa7cb92f697f43acf809730312a7e1.png);
-    height: 100%;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 #game {
+    box-shadow: 0 0 20px 4px black;    
 }
 
 footer .container {
