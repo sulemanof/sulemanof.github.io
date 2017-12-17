@@ -24,6 +24,9 @@ export default class extends Phaser.State {
     this.tileLayer = this.map.createLayer('Tile Layer 1');
     this.tileLayer.resizeWorld();
 
+    this.game.gameInfo = {};
+    setGameInfo(this.game);
+
     this.player = new Player(this.game, this.map.objects.Player[0].x, this.map.objects.Player[0].y, 'player');
     for (let i = 0; i < this.map.objects.Plants.length; i++) {
       new Plant(this.game, this.map.objects.Plants[i].x, this.map.objects.Plants[i].y, 'plant', this);
@@ -34,9 +37,6 @@ export default class extends Phaser.State {
     for (let i = 0; i < this.map.objects.Slugs.length; i++) {
       new Slug(this.game, this.map.objects.Slugs[i].x, this.map.objects.Slugs[i].y, 'slug', this);
     }
-
-    this.game.gameInfo = {};
-    setGameInfo(this.game);
   }
 
   update() {
@@ -81,11 +81,10 @@ export default class extends Phaser.State {
     if (this.map.putTile(null, this.tileLayer.getTileX(obj.x), this.tileLayer.getTileY(obj.y))) {
       this.game.gameInfo.pickUpSound.play();
       this.player.sheriffMode = true;
-      this.player.sheriffHat = this.game.add.image(this.player.position.x, this.player.position.y, 'sheriff');
-      this.player.sheriffHat.anchor.setTo(0.5, 1);
+      this.player.loadTexture('sheriff');
       setTimeout(() => {
         this.player.sheriffMode = false;
-        this.player.sheriffHat.kill();
+        this.player.loadTexture('player');
       }, 10000);
     }
   }
@@ -93,6 +92,7 @@ export default class extends Phaser.State {
 
   gameFinish() {
     if (this.game.gameInfo.greenCard.finded && this.game.gameInfo.redCard.finded) {
+      this.game.gameInfo.mission = 'completed';
       this.game.gameInfo.mainSound.stop();
       this.game.state.start('GameOver');
     } else {
@@ -120,17 +120,14 @@ export default class extends Phaser.State {
     }
   }
 
-  // killBullets(bullet) {
-  //   bullet.kill();
-  // }
-
   giveWeaponToPlayer(obj) {
     if (obj !== this.player) {
       return;
     }
     if (this.map.putTile(null, this.tileLayer.getTileX(obj.x), this.tileLayer.getTileY(obj.y))) {
       this.game.gameInfo.pickUpSound.play();
-      this.player.fireButton = this.game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
+      this.player.weapon.resetShots();
+      this.player.bulletText.text = `${5 - this.player.weapon.shots}`;
     }
   }
 }

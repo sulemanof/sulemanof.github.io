@@ -9,6 +9,11 @@ export default (game) => {
   obj.healthImg.scale.set(0.5);
   obj.healthImg.frame = 9;
   obj.healthImg.fixedToCamera = true;
+  obj.weaponImg = game.add.sprite(784, 16, 'tiles');
+  obj.weaponImg.anchor.setTo(1, 0);
+  obj.weaponImg.scale.set(0.5);
+  obj.weaponImg.frame = 11;
+  obj.weaponImg.fixedToCamera = true;
 
   obj.score = 0;
   obj.scoreText = game.add.text(0, 0, 'x 0', { fontSize: '24px', fill: '#fff' });
@@ -35,4 +40,6 @@ export default (game) => {
   obj.greenCard.scale.set(0.5);
   obj.greenCard.frame = 6;
   obj.greenCard.fixedToCamera = true;
+
+  obj.mission = 'failed';
 };

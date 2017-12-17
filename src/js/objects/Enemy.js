@@ -26,8 +26,8 @@ export default class extends Phaser.Sprite {
     this.animations.play('move', this.renderSprite);
   }
 
-  hurt() {
-    if (this.player.sheriffMode) {
+  hurt(player, enemy) {
+    if (player.sheriffMode) {
       return;
     }
 
@@ -37,24 +37,34 @@ export default class extends Phaser.Sprite {
       this.animations.play('hurt', 60, true);
     }
 
-    this.game.camera.flash(0xff0020, 500);
-    this.player.health -= this.damage;
-    this.hurtSound.play();
-    this.game.gameInfo.healthText.text = `x ${this.player.health}`;
+    if (player.health > 0 && !player.immune) {
+      this.player.immune = true;
+      this.player.alpha = 0.5;
+      this.player.damage(this.damage);
+      this.game.gameInfo.healthText.text = `x ${this.player.health}`;
+      this.game.camera.flash(0xff0020, 500);
+      this.hurtSound.play();
 
-    if (this.player.health > 0) {
-      if (this.player.position.x < this.position.x) {
-        this.player.position.x = this.player.position.x - 100;
+      if (this.player.body.position.x < enemy.body.position.x) {
+        this.player.body.velocity.x = -350;
       } else {
-        this.player.position.x = this.player.position.x + 100;
+        this.player.body.velocity.x = 350;
       }
-      this.player.position.y = this.player.position.y - 50;
+
+      this.game.time.events.add(500, () => {
+        this.player.immune = false;
+        this.player.alpha = 1;
+      }, this);
     }
   }
 
-  killBullets(bullet, bee) {
+  killBullets(enemy, bullet) {
     this.clapSound.play();
-    bee.kill();
     bullet.kill();
+    enemy.kill();
+    const blood = this.game.add.sprite(enemy.position.x, enemy.position.y, 'blood');
+    blood.anchor.setTo(0.5, 0.5);
+    blood.animations.add('play');
+    blood.animations.play('play', 10, false, true);
   }
 }
