@@ -91,15 +91,19 @@ export default class extends Phaser.State {
 
 
   gameFinish() {
+    if (this.finishText) {
+      return;
+    }
     if (this.game.gameInfo.greenCard.finded && this.game.gameInfo.redCard.finded) {
       this.game.gameInfo.mission = 'completed';
       this.game.gameInfo.mainSound.stop();
       this.game.state.start('GameOver');
     } else {
+      this.finishText = true;
       const text = this.game.add.text(400, 200, 'You need to collect all spare parts', { fontSize: '26px', fill: '#fff' });
       text.anchor.setTo(0.5, 0, 5);
       text.fixedToCamera = true;
-      setTimeout(() => text.kill(), 1500);
+      setTimeout(() => { text.kill(); this.finishText = false; }, 1500);
     }
   }
 

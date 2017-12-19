@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'amatic';
+    src: url(98c636672d9e890d55e67f1028fd90c0.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'riogrande';
+    src: url(19ce44ea93a7857ccc09a2c9d5e2ee9e.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    font-size: 10px;
+}
+
+body {
+    background-image: url(14aa7cb92f697f43acf809730312a7e1.png);
+}
+
+h1 {
+    font-family: 'riogrande';
+    font-size: 8rem;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
+    text-align: center;
+    cursor: default; 
+    margin: 15px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+}
+
+.game {
+    flex: 1 0 auto;
+    margin-bottom: 20px;
+}
+
+.game canvas {
+    box-shadow: 0 0 20px 4px black;    
+    
+}
+
+.footer {
+    width: 100%;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    align-items: center;
+    box-shadow: 0px 3px 14px -3px black;
+}
+
+.footer p {
+    font-family: 'Amatic SC', cursive;
+    font-size: 2.5rem;
+    text-align: center;
+    padding: 10px;
+}
+
+.author {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'amatic', sans-serif;
+    margin-right: 70px;
+}
+
+.social a {
+    margin: 15px;
+    text-decoration-line: none;
+    color: #000;
+    transition: all .5s;
+}
+
+.social a:hover {
+    color: palegoldenrod;
+}

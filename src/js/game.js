@@ -7,7 +7,7 @@ import Preload from './states/Preload';
 import Main from './states/Main';
 import GameOver from './states/GameOver';
 
-const css = require('../styles/game.css');
+import css from '../styles/game.css';
 
 class Game extends Phaser.Game {
   constructor() {

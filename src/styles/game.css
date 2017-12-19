@@ -18,7 +18,8 @@
     padding: 0;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     font-size: 10px;
 }
