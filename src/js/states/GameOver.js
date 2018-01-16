@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import filter from '../filters/filter';
 
 export default class extends Phaser.State {
   create() {
@@ -10,8 +11,9 @@ export default class extends Phaser.State {
     background.width = 800;
     background.height = 600;
 
-    this.filter = this.add.filter('Fire', 800, 600);
-    this.filter.alpha = 0.0;
+    this.filter = new Phaser.Filter(this.game, null, filter);
+    this.filter.setResolution(800, 600);
+    this.filter.alpha = 0.3;
     background.filters = [this.filter];
 
     this.button = this.add.button(this.camera.width / 2, this.camera.height - 140, 'restart_btn', this.actionOnClick.bind(this));

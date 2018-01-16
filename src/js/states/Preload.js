@@ -33,7 +33,6 @@ export default class extends Phaser.State {
     this.load.audio('spare', 'assets/sounds/spare.mp3');
     this.load.audio('explosion', 'assets/sounds/explosion.mp3');
     this.load.audio('main', 'assets/sounds/main_theme.mp3');
-    this.load.script('filter', 'https://cdn.rawgit.com/photonstorm/phaser/master/v2/filters/Fire.js');
 
     this.load.setPreloadSprite(this.preloadBar);
     this.load.onFileComplete.add(this.fileComplete, this);
